@@ -1,0 +1,18 @@
+﻿@if (ViewBag.Breadcrumbs != null)
+{
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb small bg-white border-bottom justify-content-center justify-content-md-start justify-content-lg-start justify-content-xl-start" style="border-color: lightgray;">
+            @foreach (var breadcrumb in ViewBag.Breadcrumbs as List<Breadcrumb>)
+            {
+                if (breadcrumb.Active)
+                {
+                    <li class="breadcrumb-item active"><a asp-action="@breadcrumb.Action" asp-controller="@breadcrumb.Controller">@breadcrumb.Text</a></li>
+                }
+                else
+                {
+                    <li class="breadcrumb-item" aria-current="page">@breadcrumb.Text</li>
+                }
+            }
+        </ol>
+    </nav>
+}
